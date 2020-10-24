@@ -11,9 +11,7 @@ vector<T> FindGreaterElements(const set<T>& elements, const T& border) {
   vector<T>   result;
 
   auto it = find_if(elements.begin(), elements.end(),
-    [border](const T& b, const T& el) { return (el == b); });
-  if (it != elements.end())
-    it++;
+    [border](const T& el) { return (el > border); });
   while (it != elements.end())
     result.push_back(*(it++));
   return (result);
